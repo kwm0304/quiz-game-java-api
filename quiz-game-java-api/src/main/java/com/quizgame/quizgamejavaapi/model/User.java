@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 @Entity
@@ -14,12 +15,12 @@ public class User{
     private String username;
     private String password;
     private String email;
-    private List<Integer> scores;
+    private Map<Integer, Integer> scores;
 
     public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
-        this.scores = new ArrayList<>();
+        this.scores = new HashMap<>();
     }
 
     public String getUsername() {
@@ -46,11 +47,11 @@ public class User{
         this.email = email;
     }
 
-    public List<Integer> getScores() {
+    public Map<Integer, Integer> getScores() {
         return scores;
     }
 
-    public void setScores(List<Integer> scores) {
+    public void setScores(Map<Integer, Integer> scores) {
         this.scores = scores;
     }
 
@@ -65,5 +66,9 @@ public class User{
     @Override
     public int hashCode() {
         return Objects.hash(getUsername(), getPassword(), getEmail(), getScores());
+    }
+
+    public void updateGameScore(int gameId, int newScore) {
+        scores.put(gameId,newScore);
     }
 }
