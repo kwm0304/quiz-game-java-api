@@ -1,20 +1,23 @@
 package com.quizgame.quizgamejavaapi.model;
 
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Question {
     private String questionText;
-    private List<String> options;
-    private String correctOption;
+    private Map<String, String> options;
+    private String correctOptionKey;
     private int adjTimeCorrect;
     private int adjTimeIncorrect;
 
-    public Question(String questionText, List<String> options, String correctOption,
+    public Question(String questionText, Map<String, String> options, String correctOptionKey,
                     int adjTimeCorrect, int adjTimeIncorrect) {
         this.questionText = questionText;
         this.options = options;
-        this.correctOption = correctOption;
-        this.adjTimeCorrect = adjTimeCorrect;
+        this.correctOptionKey = correctOptionKey;
+        this. adjTimeCorrect = adjTimeCorrect;
         this.adjTimeIncorrect = adjTimeIncorrect;
     }
 
@@ -26,20 +29,20 @@ public class Question {
         this.questionText = questionText;
     }
 
-    public List<String> getOptions() {
+    public Map<String, String> getOptions() {
         return options;
     }
 
-    public void setOptions(List<String> options) {
+    public void setOptions(Map<String, String> options) {
         this.options = options;
     }
 
-    public String getCorrectOption() {
-        return correctOption;
+    public String getCorrectOptionKey() {
+        return correctOptionKey;
     }
 
-    public void setCorrectOption(String correctOption) {
-        this.correctOption = correctOption;
+    public void setCorrectOptionKey(String correctOptionKey) {
+        this.correctOptionKey = correctOptionKey;
     }
 
     public int getAdjTimeCorrect() {
@@ -57,4 +60,6 @@ public class Question {
     public void setAdjTimeIncorrect(int adjTimeIncorrect) {
         this.adjTimeIncorrect = adjTimeIncorrect;
     }
+
+
 }
